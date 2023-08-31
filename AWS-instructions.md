@@ -31,7 +31,7 @@ Note: if not built on this machine, will need the folder to be copied in to the 
 
 `pip install --upgrade pip`
 
-`git clone https://github.com/DistilledLtd/pyrobots.git`
+`git clone https://github.com/willcritchlow/pyrobots.git`
 
 `cd pyrobots`
 
