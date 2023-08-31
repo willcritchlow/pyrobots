@@ -43,7 +43,11 @@ Note: if not built on this machine, will need the folder to be copied in to the 
 
 REBOOT
 
+`source ./virtualenv/pyrobots/bin/activate`
+
 `cd pyrobots`
+
+`sudo apt-get install gunicorn`
 
 `gunicorn -w 4 pyrobots:app --daemon`
 
