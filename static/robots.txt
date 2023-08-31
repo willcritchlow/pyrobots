@@ -1,0 +1,20 @@
+# This is a robots.txt file that causes the supposedly 'production'
+# Google open source parser to misbehave and also exposes issues with
+# the Search Console robots.txt checker.
+#
+# The Search Console checker will report that Googlebot is
+# ALLOWED to crawl /bar/ which is incorrect - the "/" and everything
+# after it should be ignored.
+#
+# The open source parser will report that googlebot-image is
+# ALLOWED to crawl /bar/ which is incorrect - it should be blocked by
+# the googlebot rule in the absence of a ruleset targeting
+# googlebot-image.
+#
+# See: https://realrobotstxt.com/ for more information.
+
+User-agent: *
+Disallow: /foo/
+
+User-agent: googlebot/1.2
+Disallow: /bar/

@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="shortcut icon" href="/favicon.ico"/>
+    
+<link rel="canonical" href="https://www.realrobotstxt.com{{ canonical }}"/>
+
+    <meta name="description" content="{{ desc }}"/>
+    <meta name="og:description" content="{{ desc }}"/>
+    <meta property="og:title" content="{{ title }}"/>
+    <meta property="og:url" content="https://www.realrobotstxt.com{{ canonical }}"/>
+    <meta property="og:site_name" content="Real Robots.txt Parser"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://www.realrobotstxt.com/free_web-based_robots.txt_parser.png"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@willcritchlow"/>
+    <meta name="twitter:description" content="{{ desc }}"/>
+    <meta name="twitter:image" content="https://www.realrobotstxt.com/free_web-based_robots.txt_parser.png"/>
+
+<title>{{ title }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <!--<![endif]-->
+    
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+<style>
+  code {
+    background: #eee;
+  }
+
+  .warning code {
+    color: #f6a021;
+  }
+
+  .highlight {
+    background: #eee;
+  }
+  .allowed {
+    background: #8db63e;
+    color: white;
+  }
+  .disallowed {
+    background: #cf2028;
+    color: white;
+  }
+
+  .warning {
+    background: #f6a021;
+    color: white;
+    padding: 5px;
+  }
+
+  .blockcode {
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+
+  .footer.l-box.is-center a {
+    color: green;
+  }
+
+  .footer.l-box.is-center a:visited {
+    color: white;
+  }
+
+/* styles below from PureCSS: https://github.com/pure-css/pure-site/blob/master/public/css/layouts/marketing.css */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+ * -- BASE STYLES --
+ * Most of these are inherited from Base, but I want to change a few.
+ */
+body {
+    line-height: 1.7em;
+    color: #7f8c8d;
+    font-size: 13px;
+}
+
+.pure-menu-selected>.pure-menu-link:visited {
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #34495e;
+}
+
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * -- LAYOUT STYLES --
+ * These are some useful classes which I will need
+ */
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+
+
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+.pure-button {
+    background-color: #259ad6;
+    color: white;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+}
+
+a.pure-button-primary {
+    background: white;
+    color: #259ad6;
+    border-radius: 5px;
+    font-size: 120%;
+}
+
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+
+.home-menu {
+    padding: 0.5em;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+}
+.home-menu {
+    background: #2d3e50;
+}
+.pure-menu.pure-menu-fixed {
+    /* Fixed menus normally have a border at the bottom. */
+    border-bottom: none;
+    /* I need a higher z-index here because of the scroll-over effect. */
+    z-index: 4;
+}
+
+.home-menu .pure-menu-heading {
+    color: white;
+    font-weight: 400;
+    font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+    color: white;
+}
+
+.home-menu a {
+    color: #6FBEF3;
+}
+.home-menu li a:hover,
+.home-menu li a:focus {
+    background: none;
+    border: none;
+    color: #AECFE5;
+}
+
+/*
+ * -- CONTENT STYLES --
+ * This represents the content area (everything below the blue section)
+ */
+.content-wrapper {
+    width: 100%;
+    background: white;
+}
+
+/* We want to give the content area some more padding */
+.content {
+    padding: 1em 1em 3em;
+}
+
+/* This is the class used for the main content headers (<h2>) */
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+/* This is a modifier class used when the content-head is inside a ribbon */
+.content-head-ribbon {
+    color: white;
+}
+
+/* This is the class used for the content sub-headers (<h3>) */
+.content-subhead {
+    color: #259ad6;
+}
+    .content-subhead i {
+        margin-right: 7px;
+    }
+
+/* This is the class used for the dark-background areas. */
+.ribbon {
+    background: #2d3e50;
+    color: #aaa;
+}
+
+/* This is the class used for the footer */
+.footer {
+    background: #111;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 48em) {
+
+    /* We increase the body font size */
+    body {
+        font-size: 16px;
+    }
+
+    /* We can align the menu header to the left, but float the
+    menu items to the right. */
+    .home-menu {
+        text-align: left;
+    }
+        .home-menu ul {
+            float: right;
+        }
+
+    /* We increase the height of the splash-container */
+/*    .splash-container {
+        height: 500px;
+    }*/
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+/*
+ * -- DESKTOP (AND UP) MEDIA QUERIES --
+ * On desktops and other large devices, we want to over-ride some
+ * of the mobile and tablet styles.
+ */
+@media (min-width: 78em) {
+    /* We increase the header font size even more */
+    .splash-head {
+        font-size: 300%;
+    }
+}
+</style>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1618063-21"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-1618063-21');
+</script>
+
+</head>
+<body>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/">Robots.txt Parser</a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item pure-menu-selected"><a href="https://twitter.com/willcritchlow" class="pure-menu-link">Follow me on Twitter</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content-wrapper">
+  <div class="content">
+
+{% if error == "404" %}
+<h1 class="content-head is-center">This page does not exist</h1>
+<div class="pure-g">
+<div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+<p>You probably want to <a href="/">parse a robots.txt file</a>.</p>
+<p>But you can just do it from here:</p>
+</div>
+</div>
+{% endif %}
+
+{% if error == "405" %}
+<h1 class="content-head is-center">Submit the form</h1>
+<div class="pure-g">
+<div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+<p>You probably want to <a href="/">parse a robots.txt file</a>.</p>
+<p>But you can just do it from here:</p>
+</div>
+</div>
+{% endif %}
+
+{% if form %}
+  <h1 class="content-head is-center">Parse your robots.txt file the same way Google's crawlers do</h1>
+  <div class="pure-g">
+  <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+  <p>Choose a Googlebot, enter your robots.txt file in the text area and enter the path you'd like to check.</p>
+  <form method='post' action='/parse/' class="pure-form pure-form-stacked">
+    <label for="ua">Crawler</label>
+    <select name="ua" class="pure-input-1">
+      <option value="googlebot">Googlebot</option>
+      <option value="googlebot-image">Googlebot Image</option>
+      <option value="googlebot-video">Googlebot Video</option>
+      <option value="googlebot-news">Googlebot News</option>
+      <option value="adsbot-google">AdsBot</option>
+      <option value="adsbot-google-mobile">AdsBot mobile</option>
+      <option value="mediapartners-google">AdSense</option>
+
+      <option value="other">Other</option>
+    </select>
+    <label for="other">Specify user agent (if "other" crawler selected):</label>
+    <input type='text' name='other' class="pure-input-1"/>
+    <label for="robots">Robots.txt file</label>
+    <textarea name='robots' rows='10'  class="pure-input-1">User-agent: googlebot
+Disallow: /foo/</textarea>
+    <label for="url">Path to check</label>
+    <input type='text' name='url' value='/foo/' class="pure-input-1"/>
+    <button class="pure-button pure-button-primary">Parse</button>
+  </form>
+  <p>You must ensure that the path you wish to check follows the format specified by RFC3986, since this library will not perform full normalization of those URI parameters. Only if the URI is in this format, will the matching be done according to the REP specification. This is exactly as per Google's <a href="https://github.com/google/robotstxt">open source project</a>.</p>
+{% else %}
+  <h1 class="content-head is-center">Results</h1>
+  <div class="pure-g">
+  <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+  <p><code>{{ ua }}</code> is <span class="highlight {% if allowed %}allowed{% else %}disallowed{% endif %}">{% if allowed %}ALLOWED</span> to crawl{% else %}DISALLOWED</span> from crawling{% endif %} <code>{{ url }}</code>.</p>
+  <h2>Robots.txt file:</h2>
+  <div class="blockcode">
+    <code>
+    {% for robot_line in robots %}<div>{% if loop.index == line %}<span class="highlight {%if allowed %}allowed{% else %}disallowed{%endif%}">{% endif %}{%if robot_line %}{{ robot_line }}{% else %}&nbsp;{% endif %}{% if loop.index == line %}</span>{% endif %}</div>{% endfor %}
+    </code>
+  </div>
+  {% if allowed %}
+    {% if line == 0 %}
+    <p>Crawling is <span class="highligh allowed">ALLOWED</span> by default because there are no <code>Disallow</code> lines that apply to this URL for this crawler.</p>
+    {% endif %}
+  {% endif %}
+  {% if ua == "googlebot-news" %}<p class="warning"><strong>Note:</strong> that <code>googlebot-news</code> isn't really a crawler. Where we report <code>DISALLOWED</code> for <code>googlebot-news</code>, what we <em>believe</em> happens is that Google <strong>will</strong> crawl (unless <code>googlebot</code> is blocked), but that the URL will be kept out of Google News. In other words it functions a little like a <code>noindex</code> for Google News. This is different to how other directives work - where they control <em>crawling</em> only and <strong>not</strong> <em>indexation</em>.</p>{% endif %}
+  {% if ignore_global %}<p class="warning"><strong>Note:</strong> that this bot ignores global disallow directives and responds <em>only</em> to named directives (based on <a href="https://support.google.com/webmasters/answer/6062596?hl=en">this reference</a> and <a href="https://support.google.com/adsense/answer/99376?visit_id=637095796575324069-442413265&rd=1">this reference</a>).</p>{% endif %}
+{% endif %}
+  </div>
+
+  <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <h4>Why does this exist?</h4>
+                <p>
+                    <ol>
+                      <li>The old Search Console robots.txt tester <a href="https://www.distilled.net/resources/googles-robotstxt-parser-is-misbehaving/">differs from real Googlebot behaviour</a> and we expect to see it deprecated at some point.</li>
+                      <li>Google published an <a href="https://github.com/google/robotstxt">open source project</a> containing the code their crawlers use to parse robots.txt but:</li>
+                      <ol>
+                        <li>It needs to be compiled, which requires at least a modicum of C++ skills</li>
+                        <li>It <a href="https://twitter.com/willcritchlow/status/1194282036581847040">doesn't contain</a> the Google-specific logic that <code>googlebot-image</code> and other Google crawlers use</li>
+                      </ol>
+                    </ol>
+                </p>
+
+                <p>This site's own <a href="/robots.txt">robots.txt file</a> exposes the differences compared to each. You can copy-and-paste it here to see that both <code>googlebot</code> and <code>googlebot-image</code> should be <code>DISALLOWED</code> from crawling <code>/bar/</code>. This differs from the Search Console checker (in the <code>googlebot</code> case) and from the open source project (in the <code>googlebot-image</code> case).</p>
+
+                <h4>How does this tool differ from Google's open source project?</h4>
+
+                <p>Apart from some minor tweaks to make it available on the web, the only substantive change is to <a href="https://github.com/willcritchlow/robotstxt/pull/2">allow it to take an ordered tuple of user agents</a> as a comma-separated pair (e.g. <code>googlebot-image,googlebot</code>) in order to enable functionality that mimics how Google crawlers behave in the wild. You can read the documentation for how they <strong>should</strong> work <a href="https://developers.google.com/search/reference/robots_txt#order-of-precedence-for-user-agents">here</a>. The key practical differences this makes are that some Google crawlers fall back on <code>googlebot</code> directives if their own user agent is missing, and some <strong>only</strong> obey <em>specific</em> directives and ignore <code>User-agent: *</code> rulesets.</p>
+
+                <p>We have <a href="https://twitter.com/willcritchlow/status/1194307059292000257">verified</a> this behaviour against <strong>real</strong> <code>googlebot-image</code> behaviour in the wild, and assume it holds for the other Google crawlers which are <a href="https://support.google.com/webmasters/answer/1061943">described as operating this way</a>.</p>
+
+                <h4>Who are you anyway?</h4>
+
+                <p>I'm <a href="https://www.searchpilot.com/about/team/will-critchlow/">Will Critchlow</a>. I am CEO of <a href="https://www.searchpilot.com">SearchPilot</a> and SEO Partner at <a href="https://www.brainlabsdigital.com">Brainlabs</a> and I am unhealthily interested in how robots.txt files work.</p>
+
+                <p>You can <a href="https://twitter.com/willcritchlow">follow me on Twitter here</a>.</p>
+
+                <h4>What else do we need to know to use this tool?</h4>
+
+                <p>If you select Googlebot Image, News or Video, it will run against the underlying parser with the input <code>googlebot-&lt;sub&gt;,googlebot</code> which first seeks a robots.txt ruleset targeting the specific crawler. Only if that is not present, will it parse the robots.txt file as <code>googlebot</code>. The same will happen if you input <code>googlebot-image</code> or similar in the "other" box. You may also provide, in the "other" box a comma-separated tuple of user agents (with no spaces) - which will behave as described above, seeking a <code>ruleset</code> targeting the first user agent and parse as the second user agent if none is found.</p>
+
+                <p>If you select an <code>AdsBot</code> or the AdSense option (user-agent <code>mediapartners-google</code>) then it will only respect rulesets that specifically target that user agent and will ignore <code>User-agent: *</code> blocks.</p>
+
+                <h4>More Information</h4>
+                <p>
+                  <ul>
+                    <li><a href="https://github.com/google/robotstxt">Google's open source robots.txt parser</a></li>
+                    <li><a href="https://github.com/google/robotstxt/pull/26">My pull request</a> implementing <a href="https://twitter.com/willcritchlow/status/1194282036581847040">the change @methode specified</a></li>
+                    <li>My original blog post showing <a href="https://www.distilled.net/resources/googles-robotstxt-parser-is-misbehaving/">differences between the documentation, the Search Console tester, and the open source parser</a></li>
+                    <li><a href="https://github.com/willcritchlow/robotstxt/pull/2">My speculation of how Google crawlers like <code>googlebot-image</code> parse robots.txt files</a> (this tool uses a version of the open source parser built from a branch that includes these changes)</li>
+                    <li>In order to be able to call it from Python, I modified the open source project to output information in a structured way. You can <a href="https://github.com/willcritchlow/robotstxt/tree/pythoncallingexecutable">view this branch of my fork here</a></li>
+                  </ul>
+                </p>
+</div>
+  </div>
+  </div>
+      <div class="footer l-box is-center">
+        Thanks to libraries used: <a href="https://github.com/ReneNyffenegger/cpp-base64">C++ Base64 decoding</a> and CSS from <a href="https://purecss.io/layouts/marketing/">PureCSS</a>.
+    </div>
+</div>
+</body>
+</html>
