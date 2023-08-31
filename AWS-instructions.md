@@ -11,6 +11,8 @@
 - `cd robotstxt`
 - `git checkout pythoncallingexecutable`
 
+(Note: temporarily, until I patch changes back into the right branch, the above doesn't work - you need to clone the public google repo and then patch in the changes that I made in `pythoncallingexecutable` to enable it to be called programmatically).
+
 `sudo apt-get install build-essential`
 
 - `mkdir c-build && cd c-build`
