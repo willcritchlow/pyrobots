@@ -35,6 +35,8 @@ Note: if not built on this machine, will need the folder to be copied in to the 
 
 `cd pyrobots`
 
+Move the correct executable file into the pyrobots repo (e.g. from compiling step above)
+
 `python3 -m pip install -r requirements.txt`
 
 `sudo apt-get install nginx`
@@ -46,6 +48,8 @@ REBOOT
 `source ./virtualenv/pyrobots/bin/activate`
 
 `cd pyrobots`
+
+Copy realrobotstxt.com.key and .pem from local machine / cloudflare (these can't be saved to a public github repo).
 
 `sudo apt-get install gunicorn`
 
