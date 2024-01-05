@@ -33,6 +33,10 @@ Note: if not built on this machine, will need the folder to be copied in to the 
 
 `git clone https://github.com/willcritchlow/pyrobots.git`
 
+Grant access so nginx can read static assets:
+
+`sudo chmod o+x /home/ubuntu`
+
 `cd pyrobots`
 
 Move the correct executable file into the pyrobots repo (e.g. from compiling step above)
