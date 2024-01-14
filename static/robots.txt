@@ -1,8 +1,7 @@
-# This is a robots.txt file that causes the supposedly 'production'
-# Google open source parser to misbehave and also exposes issues with
-# the Search Console robots.txt checker.
+# This is a robots.txt file that causes the 'production'
+# Google open source parser to misbehave.
 #
-# The Search Console checker will report that Googlebot is
+# The old Search Console checker reported that Googlebot is
 # ALLOWED to crawl /bar/ which is incorrect - the "/" and everything
 # after it should be ignored.
 #
