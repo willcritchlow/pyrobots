@@ -32,4 +32,4 @@ curl -X POST -H "Content-Type: application/json" -d '{
 
 ## Deploying
 
-See [AWS instructions](AWS-instructions.md). Currently deployed on a lightsail instance in the main AWS account.
+See [AWS instructions](AWS-instructions.md). Currently deployed on a lightsail instance in my own AWS account.
