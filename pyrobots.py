@@ -14,9 +14,9 @@ app = Flask(__name__)
 def hello():
     return render_template(
         "base.html",
-        title="Robots.txt parser based on Google's open source parser from Distilled",
+        title="Robots.txt parser based on Google's open source parser from Will Critchlow, CEO of SearchPilot",
         form="form",
-        desc="Distilled's interpretation of how Google parses robots.txt files using a fork of their robust open source parser",
+        desc="My interpretation of how Google parses robots.txt files using a fork of their robust open source parser",
         canonical="/",
     )
 
@@ -73,14 +73,14 @@ def parse():
         robots_highlight.append(robots_line)
     return render_template(
         "base.html",
-        title="Results of parsing | Distilled robots.txt parser",
+        title="Results of parsing | Will Critchlow's robots.txt parser",
         ua=ua,
         robots=robots_highlight,
         line=line,
         allowed=allowed,
         url=url,
         ignore_global=ignore_global,
-        desc="Parsing results from Distilled's interpretation of how Google parses robots.txt files",
+        desc="Parsing results from Will Critchlow's interpretation of how Google parses robots.txt files",
         canonical="/parse/",
     )
 
