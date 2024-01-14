@@ -408,7 +408,7 @@ Disallow: /foo/</textarea>
                 <h4>Why does this exist?</h4>
                 <p>
                     <ol>
-                      <li>The old Search Console robots.txt tester <a href="https://www.distilled.net/resources/googles-robotstxt-parser-is-misbehaving/">differs from real Googlebot behaviour</a> and we expect to see it deprecated at some point.</li>
+                      <li>It used to be possible to test specific robots.txt configurations in Search Console, but the tester did not match real googlebot behaviour, and eventually Google chose to deprecate that tool.</li>
                       <li>Google published an <a href="https://github.com/google/robotstxt">open source project</a> containing the code their crawlers use to parse robots.txt but:</li>
                       <ol>
                         <li>It needs to be compiled, which requires at least a modicum of C++ skills</li>
@@ -417,7 +417,7 @@ Disallow: /foo/</textarea>
                     </ol>
                 </p>
 
-                <p>This site's own <a href="/robots.txt">robots.txt file</a> exposes the differences compared to each. You can copy-and-paste it here to see that both <code>googlebot</code> and <code>googlebot-image</code> should be <code>DISALLOWED</code> from crawling <code>/bar/</code>. This differs from the Search Console checker (in the <code>googlebot</code> case) and from the open source project (in the <code>googlebot-image</code> case).</p>
+                <p>This site's own <a href="/robots.txt">robots.txt file</a> exposes the problem of using the open source checker without a wrapper. You can copy-and-paste it here to see that both <code>googlebot</code> and <code>googlebot-image</code> should be <code>DISALLOWED</code> from crawling <code>/bar/</code>. Without handling this kind of case specifically, the open source project will not get this right.</p>
 
                 <h4>How does this tool differ from Google's open source project?</h4>
 
@@ -441,8 +441,6 @@ Disallow: /foo/</textarea>
                 <p>
                   <ul>
                     <li><a href="https://github.com/google/robotstxt">Google's open source robots.txt parser</a></li>
-                    <li><a href="https://github.com/google/robotstxt/pull/26">My pull request</a> implementing <a href="https://twitter.com/willcritchlow/status/1194282036581847040">the change @methode specified</a></li>
-                    <li>My original blog post showing <a href="https://www.distilled.net/resources/googles-robotstxt-parser-is-misbehaving/">differences between the documentation, the Search Console tester, and the open source parser</a></li>
                     <li><a href="https://github.com/willcritchlow/robotstxt/pull/2">My speculation of how Google crawlers like <code>googlebot-image</code> parse robots.txt files</a> (this tool uses a version of the open source parser built from a branch that includes these changes)</li>
                     <li>In order to be able to call it from Python, I modified the open source project to output information in a structured way. You can <a href="https://github.com/willcritchlow/robotstxt/tree/pythoncallingexecutable">view this branch of my fork here</a></li>
                   </ul>
@@ -451,7 +449,7 @@ Disallow: /foo/</textarea>
   </div>
   </div>
       <div class="footer l-box is-center">
-        Thanks to libraries used: <a href="https://github.com/ReneNyffenegger/cpp-base64">C++ Base64 decoding</a> and CSS from <a href="https://purecss.io/layouts/marketing/">PureCSS</a>.
+        Thanks to libraries used: <a href="https://github.com/ReneNyffenegger/cpp-base64">C++ Base64 decoding</a> and CSS from <a href="https://purecss.io/layouts/marketing/">PureCSS</a>, and to ChatGPT for the favicon and og:images!
     </div>
 </div>
 </body>
